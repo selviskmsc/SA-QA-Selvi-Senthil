@@ -8,7 +8,7 @@ from pageObjects.Continue import ContinuePage
 from pageObjects.FinishPurchase import FinishPurchase
 
 
-class Test_003_AddtoCart():
+class Test_007_Finishpurchase():
     baseURL = "https://www.saucedemo.com/"
     username = "standard_user"
     password = "secret_sauce"
@@ -38,4 +38,5 @@ class Test_003_AddtoCart():
         self.cp.clickContinue()
         self.fp = FinishPurchase(self.driver)
         self.fp.clickFinish()
+        time.sleep(5)
 

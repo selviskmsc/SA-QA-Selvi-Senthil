@@ -17,7 +17,7 @@ class Test_001_Login:
          self.driver.get(self.baseURL)
          act_title=self.driver.title
          print("Title=",act_title)
-         if act_title=="Swag Labs123":
+         if act_title==("Swag Labs"):
              assert True
              self.driver.close()
          else:

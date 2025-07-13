@@ -7,7 +7,7 @@ from pageObjects.ShoppingCart import ShoppingCart
 from pageObjects.Continue import ContinuePage
 
 
-class Test_005_Continuepurchase():
+class Test_006_Continuepurchase():
     baseURL = "https://www.saucedemo.com/"
     username = "standard_user"
     password = "secret_sauce"

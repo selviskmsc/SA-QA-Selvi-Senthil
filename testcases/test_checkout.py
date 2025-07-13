@@ -6,7 +6,7 @@ from pageObjects.CheckOut import Checkout
 from pageObjects.ShoppingCart import ShoppingCart
 
 
-class Test_004_AddtoCart():
+class Test_005_Checkout():
     baseURL = "https://www.saucedemo.com/"
     username = "standard_user"
     password = "secret_sauce"

@@ -35,8 +35,8 @@ You must also install the correct **EdgeDriver** matching your browser version.
 ### 1. Clone the Repository
 
 ```bash
-git clone 
-cd saucedemo-automation
+git clone git@github.com:selviskmsc/SA-QA-Selvi-Senthil.git
+cd SA-QA-Selvi-Senthil
 ```
 
 ### 2. Create and Activate Virtual Environment (Recommended)
@@ -45,8 +45,6 @@ cd saucedemo-automation
 python -m venv venv
 # Windows
 venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
 ```
 
 ### 3. Install Dependencies
@@ -55,7 +53,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-> If `requirements.txt` is missing, install manually:
+> If any error in `requirements.txt`, install manually:
 ```bash
 pip install selenium pytest pytest-html
 ```
@@ -73,14 +71,22 @@ pytest tests/
 ### Run with HTML Report
 
 ```bash
-pytest tests/ --html=reports/test_report.html --self-contained-html
+pytest -s -v --html=Reports\report.html testcases/test_login.py --browser edge
+pytest -s -v --html=Reports\report.html testcases/test_purchaseproduct.py --browser edge
+pytest -s -v --html=Reports\report.html testcases/test_addtocart.py --browser edge
+pytest -s -v --html=Reports\report.html testcases/test_shoppingcart.py --browser edge
+pytest -s -v --html=Reports\report.html testcases/test_checkout.py --browser edge
+pytest -s -v --html=Reports\report.html testcases/test_continuepurchase.py --browser edge
+pytest -s -v --html=Reports\report.html testcases/test_finishpurchase.py --browser edge
+
+
 ```
 
 ### Sample Output Directory Structure
 ```
-saucedemo_automation/
-├── reports/
-│   └── test_report.html    ← HTML report
+SA-QA-Selvi-Senthil/
+├── Reports/
+│   └── report.html    ← HTML report
 ```
 
 ---
@@ -88,18 +94,24 @@ saucedemo_automation/
 ## 🧪 Example Directory Layout
 
 ```
-saucedemo_automation/
-├── pages/
-│   ├── login_page.py
-│   └── product_page.py
+SA-QA-Selvi-Senthil/
+├── pagesObjects/
+│   ├── LoginPage.py
+│   ├── AddtoCart.py
+│   ├── Checkout.py
+│   ├── Continue.py
+│   ├── PurchaseProduct.py
+│   └── FinishPurchase.py
 ├── tests/
-│   ├── test_login.py
-│   └── test_cart.py
+│   ├── test_loginPage.py
+│   ├── test_addtoCart.py
+│   ├── test_checkout.py
+│   ├── test_continue.py
+│   ├── test_purchaseProduct.py
+│   └── test_finishPurchase.py
 ├── reports/
 │   └── test_report.html
-├── conftest.py
 ├── requirements.txt
-├── pytest.ini (optional)
 ```
 
 ---
@@ -115,7 +127,7 @@ on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -150,7 +162,3 @@ jobs:
 - 📄 HTML reports are stored in the `reports/` folder (locally) or uploaded as artifacts (in CI).
 
 ---
-
-## 🤝 Contributing
-
-Feel free to fork, raise issues, or contribute test cases!
